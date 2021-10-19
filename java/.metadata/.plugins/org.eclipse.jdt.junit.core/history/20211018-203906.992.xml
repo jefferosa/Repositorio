@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="negocio" project="SistemaBancario" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="negocio.GerenciadoraClientesTest_Ex2" time="0.0">
+    <testcase name="testRemoveCliente" classname="negocio.GerenciadoraClientesTest_Ex2" time="0.0"/>
+  </testsuite>
+  <testsuite name="negocio.GerenciadoraClientesTest_Ex1" time="0.0">
+    <testcase name="testPesquisaCliente" classname="negocio.GerenciadoraClientesTest_Ex1" time="0.0"/>
+  </testsuite>
+</testrun>
