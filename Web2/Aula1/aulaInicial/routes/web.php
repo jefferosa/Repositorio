@@ -14,5 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return "Hello World!";
+});
+
+Route::get('/welcome', function () {
     return view('welcome');
+});
+
+Route::get('/boasvindas', function () {
+    return View('ola');
+});
+
+Route::get('ola2/{nome}', function ($nome) {
+    echo "Salve ".$nome.", seja bem vindo!";
+});
+
+Route::get('soma/{a}/{b}', function ($a, $b) {
+    echo "A soma de ".$a." + " .$b. " = ".$a + $b;
+});
+
+Route::get('opcional/{nome?}', function ($nome = null) {
+    if (isset ($nome))
+        echo "Olá $nome, seja bem vindo";
+    else
+        echo "usuário não informou parâmetroo";
 });
