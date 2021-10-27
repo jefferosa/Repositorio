@@ -9,5 +9,10 @@
 <body>
     <h1>Seja bem vindo ao framework Laravel</h1>
     <p>Estamos desenvolvendo uma atividade na aula 1</p>
+    @if (isset ($nome))
+        echo "Olá {{$nome}}, seja bem vindo";
+    @else
+        echo "usuário não informou parâmetroo";
+    @endif
 </body>
 </html>
