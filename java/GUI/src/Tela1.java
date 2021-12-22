@@ -20,7 +20,7 @@ public class Tela1 implements ActionListener
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new FlowLayout());
 		
-		textField = new JTextField(10);
+		JTextField textField = new JTextField(10);
 		textField.addActionListener(this);
 		textField.setActionCommand("Enter");
 		frame.add(textField);

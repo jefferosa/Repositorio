@@ -6,6 +6,10 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\Repositorio\java\Avaliacao"/>
+			<item value="D:\Repositorio\java\Avaliacao1"/>
+			<item value="D:\Repositorio\java\JavaSwing2"/>
+			<item value="D:\Downloads\JavaSwing\JavaSwing"/>
 			<item value="D:\Repositorio\java\SistemaBancario"/>
 			<item value="D:\Repositorio\java\eclipse"/>
 		</list>
