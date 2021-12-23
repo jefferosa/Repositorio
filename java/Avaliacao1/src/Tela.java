@@ -23,7 +23,7 @@ public class Tela implements ActionListener
     
     public Tela()
     {
-        JFrame frame = new JFrame("Cadastro");
+        JFrame frame = new JFrame("Cadastro Estudante");
 		frame.setVisible(true);
 		frame.setSize(720, 280);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
