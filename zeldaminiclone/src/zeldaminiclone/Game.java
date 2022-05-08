@@ -12,7 +12,8 @@ import javax.swing.JFrame;
 
 public class Game extends Canvas implements Runnable, KeyListener
 {
-	public static int WIDTH = 480, HEIGHT = 480;
+	public static int WIDTH = 640, HEIGHT = 480;
+	public static int SCALE = 6;
 	public Player player;
 	public World world;
 	
@@ -20,6 +21,7 @@ public class Game extends Canvas implements Runnable, KeyListener
 	{
 		this.addKeyListener(this);
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		new Spritesheet();
 		
 		player = new Player(32, 32);
 		world = new World();
@@ -42,8 +44,8 @@ public class Game extends Canvas implements Runnable, KeyListener
 		
 		Graphics g = bs.getDrawGraphics();
 		
-		g.setColor(Color.black);
-		g.fillRect(0, 0, WIDTH, HEIGHT);
+		g.setColor(new Color(0, 135, 13));
+		g.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
 		
 		player.render(g);
 		world.render(g);
