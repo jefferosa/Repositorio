@@ -4,11 +4,12 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class Player extends Rectangle
+public class Inimigo extends Rectangle
 {
-	public int spd = 4;
-	public boolean right, up, down, left;
+	public int spd = 2;
+	public int right = 1, up = 0, down = 0, left = 0;
 	
 	public int curAnimation = 0;
 	public int curFrames = 0, targetFrames = 15;
@@ -17,38 +18,16 @@ public class Player extends Rectangle
 	public boolean shoot = false;
 	public int dir = 1;
 	
-	public Player(int x, int y)
+	public Inimigo(int x, int y)
 	{
 		super(x, y, 32, 32);
 	}
 	
 	public void tick()
 	{
-		boolean movedDown = false;
+		boolean movedDown = true;
 		
-		if (right && World.isFree(x + spd, y))
-		{
-			x += spd;
-			movedDown = true;
-			dir = 1;
-		}
-		else if (left && World.isFree(x - spd, y))
-		{
-			x -= spd;
-			movedDown = true;
-			dir = -1;
-		}
-		
-		if (up && World.isFree(x, y - spd))
-		{
-			y -= spd;
-			movedDown = true;
-		}
-		else if (down && World.isFree(x, y + spd))
-		{
-			y += spd;
-			movedDown = true;
-		}
+		perseguirPlayer();
 		
 		if (movedDown)
 		{
@@ -59,7 +38,7 @@ public class Player extends Rectangle
 				curFrames = 0;
 				curAnimation++;
 				
-				if (curAnimation == Spritesheet.player_front.length)
+				if (curAnimation == Spritesheet.inimigo_front.length)
 					curAnimation = 0;
 			}
 		}
@@ -74,9 +53,37 @@ public class Player extends Rectangle
 			bullets.get(i).tick();
 	}
 	
+	public void perseguirPlayer() 
+	{
+		Player p = Game.player;
+		
+		if (x < p.x && World.isFree(x + spd, y))
+		{
+			if (new Random().nextInt(100) < 50)
+				x += spd;
+		}
+		else if (x > p.x && World.isFree(x - spd, y))
+		{
+			if (new Random().nextInt(100) < 50)
+				x -= spd;
+		}
+		
+		if (y < p.y && World.isFree(x, y + spd))
+		{
+			if (new Random().nextInt(100) < 50)
+				y += spd;
+		}
+		else if (y > p.y && World.isFree(x, y - spd))
+		{
+			if (new Random().nextInt(100) < 50)
+				y -= spd;
+		}
+		
+	}
+
 	public void render(Graphics g)
 	{
-		g.drawImage(Spritesheet.player_front[curAnimation], x, y, 32, 32, null);
+		g.drawImage(Spritesheet.inimigo_front[curAnimation], x, y, 32, 32, null);
 		
 		for (int i = 0; i < bullets.size(); i++)
 			bullets.get(i).render(g);
